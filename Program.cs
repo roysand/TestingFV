@@ -5,9 +5,10 @@ using TestingFV.Util;
 
 Console.WriteLine("Hello, World!");
 
-var cus = new Customer("Roy","Sand",new DateOnly(1962,7,10));
-cus = new Customer("R","Sand",new DateOnly(1962,7,10));
+var cus = new Customer("Roy", "SandMan");
+ValidateCustomer(cus);
 
+cus = new Customer("R", "Sand");
 ValidateCustomer(cus);
 
 bool ValidateCustomer(Customer cus)
@@ -20,7 +21,7 @@ bool ValidateCustomer(Customer cus)
     {
         foreach(var failure in cusValResult.Errors)
         {
-            Console.WriteLine("Property " + failure.PropertyName + " failed validation. Error was: " + failure.ErrorMessage);
+            Console.WriteLine("Property " + failure.PropertyName + "failed validation. Error was: " + failure.ErrorMessage + " attempted value: " + failure.AttemptedValue);
         }
     }
     else
